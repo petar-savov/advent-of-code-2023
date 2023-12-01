@@ -1,4 +1,4 @@
-import regex as re  # pip install regex
+import regex as re
 
 with open("input-1.txt", "r") as f:
     data = f.read().splitlines()
@@ -28,8 +28,9 @@ words = {
 
 s = 0
 for line in data:
-    pattern = r"\d|" + "|".join(words.keys())
-    nums = re.findall(pattern, line, overlapped=True)
+    # use lookahead to find overlapping words
+    pattern = r"(?=(\d|" + "|".join(words.keys()) + "))"
+    nums = re.findall(pattern, line)
     # convert words to digits
     nums = [words.get(num, num) for num in nums]
     num = int(nums[0] + nums[-1])
