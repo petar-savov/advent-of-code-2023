@@ -1,4 +1,4 @@
-import regex as re
+import re
 
 with open("input-1.txt", "r") as f:
     data = f.read().splitlines()
