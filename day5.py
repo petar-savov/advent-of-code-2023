@@ -44,4 +44,4 @@ def lookup_range(seed_ranges, maps):
 for map_group in maps:
     seed_ranges = list(lookup_range(seed_ranges, map_group))
 
-print(min([d for d, l in seed_ranges]))
+print(min([d for d, _ in seed_ranges]))
